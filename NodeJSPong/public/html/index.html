@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../style/style.css"/>
+</head>
+<body>
+    <main>
+        <h1>PONG</h1>
+        <div id="reg" >
+            <input type="text" placeholder="Username">
+            <br>
+            <br><br>
+            <button onclick="registerUser()">Join game</button>
+        </div>
+        <div id="lobby">
+            <ul id="playerlist">
+                <li></li>
+                <li></li>
+                <br>
+                <button onclick="setReady()">ready</button>
+            </ul>
+        </div>
+        <div id="fin">
+            <h1>YOU WON!</h1>
+            <button onclick="reset()">Back to lobby</button>
+        </div>
+        <canvas id="gameCanvas" width="800" height="450">Your browser does not support this game!</canvas>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="../js/game.js"></script>
+    </main>
+</body>
+</html>
