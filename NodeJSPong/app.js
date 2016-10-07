@@ -30,6 +30,9 @@ app.get('/', function(req, res){
 
 io.on('connection', function(socket){
     console.log("User connected");
+	if(id[0] != "" && id[1] != ""){
+		index = 2;
+	}
     io.emit('setIndex', index);
     console.log("The new user now has the index: " + index);
     index++;
@@ -52,6 +55,11 @@ io.on('connection', function(socket){
             started = true;
         }
     });
+
+	socket.on('leave', function(index){
+		id[index] = "";
+		io.emit('updateLobby', index);
+	});
     
     socket.on('posUpdate', function(pos, index){
         if(index == 0){
